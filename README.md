@@ -1,5 +1,32 @@
 # Joint Physical-Digital Facial Attack Detection Via Simulating Spoofing Clues [CVPR2024 Workshop]
 This repository is the official implementation of [Joint Physical-Digital Facial Attack Detection Via Simulating Spoofing Clues](http://arxiv.org/abs/2404.08450)
+
+## 🚀  Testing in general scenarios 
+***spoof=1, live=0*** <br>
+If you want to test data in any scenario, we provide some low-profile models trained on our own datasets. It is recommended to input the full image area for [full_resnet50.pth](https://drive.google.com/file/d/1VpWN8CXdVVLTwyTPABeFXmr3UnnenjYe/view?usp=sharing) and [full_swin_v2_base.pth](https://drive.google.com/file/d/1Ii3JmoRjWcOLF4xNwCqtJyp0Ok0vJva3/view?usp=sharing). Meanwhile, we provide the model [face_swin_v2_base.pth](https://drive.google.com/file/d/1E4UD8UK_KzjhpAvR6hYInlteOEaxDZbZ/view?usp=sharing) model of the face region.:
+
+```bash
+bash scripts/test.sh
+```
+
+## 🚀  Export model to onnx
+```bash
+bash export/export_mobilenet.sh
+```
+
+## 🏆 Our models for General Scenarios
+
+input|model
+:---:|:---:
+full image|[full_resnet50.pth](https://drive.google.com/file/d/1VpWN8CXdVVLTwyTPABeFXmr3UnnenjYe/view?usp=sharing)
+full image|[full_swin_v2_base.pth](https://drive.google.com/file/d/1Ii3JmoRjWcOLF4xNwCqtJyp0Ok0vJva3/view?usp=sharing)
+face area|[face_swin_v2_base.pth](https://drive.google.com/file/d/1E4UD8UK_KzjhpAvR6hYInlteOEaxDZbZ/view?usp=sharing)
+full image|[mobilenet_v3_small.pth](https://drive.google.com/file/d/1UhCrC2VQCz4zE1UFc-lnziivqB3bSIpP/view?usp=sharing)
+full image|[shufflenetv2_1.0x.pth](https://drive.google.com/file/d/18e23EW2ncsnOqET4jCSEskHVNvFYAF1j/view?usp=sharing)
+full image|[shufflenetv2_0.5x.pth](https://drive.google.com/file/d/16VzZSYcVTNErFoLF87urdrzQbGbKvqjX/view?usp=sharing)
+
+
+
 # 🤗 Overview our method
 The overview pipeline of our method. We propose Simulated Physical Spoofing Clues augmentation (SPSC), which augments live samples into simulated physical attack samples for training within protocols 1 and 2.1. Concurrently, we present Simulated Digital Spoofing Clues augmentation (SDSC), converting live samples into simulated digital attack samples, tailored for training under protocols 1 and 2.2.
 <img src="readme_images/pipeline.png" alt="image" style="zoom:20%;" />
@@ -126,15 +153,6 @@ Test: select the 200th epoch model weight
 ```bash
 bash scripts/test_p22.sh
 ```
-
-## 🚀  Testing in general scenarios 
-**spoof=1, live=0** <br>
-If you want to test data in any scenario, we provide some low-profile models trained on our own datasets. It is recommended to input the full image area for [full_resnet50.pth](https://drive.google.com/file/d/1VpWN8CXdVVLTwyTPABeFXmr3UnnenjYe/view?usp=sharing) and [full_swin_v2_base.pth](https://drive.google.com/file/d/1Ii3JmoRjWcOLF4xNwCqtJyp0Ok0vJva3/view?usp=sharing). Meanwhile, we provide the model [face_swin_v2_base.pth](https://drive.google.com/file/d/1E4UD8UK_KzjhpAvR6hYInlteOEaxDZbZ/view?usp=sharing) model of the face region.:
-
-```bash
-bash scripts/test.sh
-```
-
 ## 🏆 Our models (only for Competition Dataset)
 
 Protocol|APCER(%)|BPCER(%)|ACER(%)|model
@@ -143,16 +161,7 @@ P1|0.31|0.09|0.20|[p1_resnet50.pth](https://drive.google.com/file/d/1gNUMzaK87Cc
 P2.1|2.55|0.09|1.32|[p21_resnet50.pth](https://drive.google.com/file/d/1pTxdI2uZj1yBSCN64vKs-cQddIZN6rvO/view?usp=drive_link)
 P2.2|1.73|1.58|1.65|[p22_resnet50.pth](https://drive.google.com/file/d/1GTAoTmyCbYGws5BV07qUL-iGVvHx_LmF/view?usp=sharing)
 
-## 🏆 Our models for General Scenarios
 
-input|model
-:---:|:---:
-full image|[full_resnet50.pth](https://drive.google.com/file/d/1VpWN8CXdVVLTwyTPABeFXmr3UnnenjYe/view?usp=sharing)
-full image|[full_swin_v2_base.pth](https://drive.google.com/file/d/1Ii3JmoRjWcOLF4xNwCqtJyp0Ok0vJva3/view?usp=sharing)
-face area|[face_swin_v2_base.pth](https://drive.google.com/file/d/1E4UD8UK_KzjhpAvR6hYInlteOEaxDZbZ/view?usp=sharing)
-full image|[mobilenet_v3_small.pth](https://drive.google.com/file/d/1UhCrC2VQCz4zE1UFc-lnziivqB3bSIpP/view?usp=sharing)
-full image|[shufflenetv2_1.0x.pth](https://drive.google.com/file/d/18e23EW2ncsnOqET4jCSEskHVNvFYAF1j/view?usp=sharing)
-full image|[shufflenetv2_0.5x.pth](https://drive.google.com/file/d/16VzZSYcVTNErFoLF87urdrzQbGbKvqjX/view?usp=sharing)
 
 ## 🎓 Citation
 If you find this repository useful for your research, please use the following entry.
